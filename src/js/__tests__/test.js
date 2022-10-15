@@ -1,12 +1,10 @@
-import {
-	Character,
-	Bowerman,
-	Swordsman,
-	Magician,
-	Daemon,
-	Undead,
-	Zombie,
-} from '../app';
+import Character from '../app';
+import Bowerman from '../bowerman';
+import Swordsman from '../swordsman';
+import Magician from '../magician';
+import Daemon from '../daemon';
+import Undead from '../undead';
+import Zombie from '../zombie';
 
 test('testing hero definition', () => {
 	function parentHeroNameError() {

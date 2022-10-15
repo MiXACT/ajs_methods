@@ -1,4 +1,4 @@
-export class Character {
+export default class Character {
 	constructor(name, type, health = 100, level = 1, attack, defence) {
 		const characterTypes = ['Bowerman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
 		if (name.length < 2 || name.length > 10) {
@@ -30,41 +30,5 @@ export class Character {
 		if (this.health >= 0) {
 			this.health -= points * (1 - this.defence / 100);
 		} else throw new Error('Damage error');
-	}
-}
-
-export class Bowerman extends Character {
-	constructor(name, type, health, level, attack = 25, defence = 25) {
-		super(name, type, health, level, attack, defence);
-	}
-}
-
-export class Swordsman extends Character {
-	constructor(name, type, health, level, attack = 40, defence = 10) {
-		super(name, type, health, level, attack, defence);
-	}
-}
-
-export class Magician extends Character {
-	constructor(name, type, health, level, attack = 10, defence = 40) {
-		super(name, type, health, level, attack, defence);
-	}
-}
-
-export class Daemon extends Character {
-	constructor(name, type, health, level, attack = 10, defence = 40) {
-		super(name, type, health, level, attack, defence);
-	}
-}
-
-export class Undead extends Character {
-	constructor(name, type, health, level, attack = 25, defence = 25) {
-		super(name, type, health, level, attack, defence);
-	}
-}
-
-export class Zombie extends Character {
-	constructor(name, type, health, level, attack = 40, defence = 10) {
-		super(name, type, health, level, attack, defence);
 	}
 }
