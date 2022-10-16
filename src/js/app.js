@@ -1,5 +1,5 @@
 export default class Character {
-	constructor(name, type, health = 100, level = 1, attack, defence) {
+	constructor(name, type) {
 		const characterTypes = ['Bowerman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
 		if (name.length < 2 || name.length > 10) {
 			throw new Error('NAME error');
@@ -11,10 +11,10 @@ export default class Character {
 		} else {
 			this.type = type;
 		}
-		this.health = health;
-		this.level = level;
-		this.attack = attack;
-		this.defence = defence;
+		this.health = 100;
+		this.level = 1;
+		this.attack = undefined;
+		this.defence = undefined;
 	}
 
 	levelUp(power = 1.2) {

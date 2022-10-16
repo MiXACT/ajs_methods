@@ -20,27 +20,33 @@ test('testing hero definition', () => {
 	expect(parentHeroNameError).toThrow('NAME error');
 	expect(parentHeroTypeError).toThrow('TYPE error');
 
-	expect(new Bowerman('TestMan', 'Bowerman')).toBeDefined();
-	expect(new Swordsman('TestMan', 'Swordsman')).toBeDefined();
-	expect(new Magician('TestMan', 'Magician')).toBeDefined();
-	expect(new Daemon('TestMan', 'Daemon')).toBeDefined();
-	expect(new Undead('TestMan', 'Undead')).toBeDefined();
-	expect(new Zombie('TestMan', 'Zombie')).toBeDefined();
+	expect(new Bowerman('TestMan')).toBeDefined();
+	expect(new Swordsman('TestMan')).toBeDefined();
+	expect(new Magician('TestMan')).toBeDefined();
+	expect(new Daemon('TestMan')).toBeDefined();
+	expect(new Undead('TestMan')).toBeDefined();
+	expect(new Zombie('TestMan')).toBeDefined();
 });
 
 test('testing hero actions', () => {
-	function heroLevelUp(health = 0) {
-		const hero = new Character('TestMan', 'Daemon', health, 0, 100, 100);
+	function heroLevelUp(health = 0, attack = 100, defence = 100) {
+		const hero = new Character('TestMan', 'Daemon');
+		hero.health = health;
+		hero.attack = attack;
+		hero.defence = defence;
 		hero.levelUp();
 		return [hero.health, hero.level, hero.attack, hero.defence];
 	}
 
 	const levelUpSuccess = heroLevelUp(1);
-	expect(levelUpSuccess).toEqual([100, 1, 120, 120]);
+	expect(levelUpSuccess).toEqual([100, 2, 120, 120]);
 	expect(heroLevelUp).toThrow('LevelUp error');
 
-	function heroDamage(health = -1) {
-		const hero = new Character('TestMan', 'Daemon', health, 0, 100, 50);
+	function heroDamage(health = -1, attack = 100, defence = 50) {
+		const hero = new Character('TestMan', 'Daemon');
+		hero.health = health;
+		hero.attack = attack;
+		hero.defence = defence;
 		hero.damage(2);
 		return hero.health;
 	}
